@@ -36,7 +36,7 @@ const contentData = {
             { label: "Email", icon: "mail", url: "mailto:aanand300@uchicago.edu" },
             { label: "Google Scholar", icon: "book-open", url: "https://scholar.google.com/citations?user=zU3RxU0AAAAJ&hl=en&oi=sra" },
             { label: "GitHub", icon: "github", url: "https://github.com/aanand300" },
-            { label: "CV", icon: "file-text", url: "" },
+            { label: "CV", icon: "file-text", url: "./assets/cvv.pdf" },
             // { label: "Twitter", icon: "twitter", url: "https://x.com/AniketA01541569" }
         ]
     },
