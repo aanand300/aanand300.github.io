@@ -77,7 +77,7 @@ const contentData = {
     // News Section (short bullet points shown on the homepage)
     news: [
         "Nov 2025: Actively seeking Summer 2026 internship opportunities in projects involving LLMs and security—reach out if your team is hiring!",
-        "Nov 2025: Stay tuned for the latest research on LLMs and log analysis!",
+        "Nov 2025: Stay tuned for the latest paper on LLMs for audit log invesigations!",
         "Sept 2025: Completed SWE internship with BrainAuth team at Google.",
         "Aug 2025: Contributed to <a href='https://github.com/google/facade/' target='_blank' class='text-primary-500 hover:text-primary-700 hover:underline font-medium'>OSS-Facade</a>",
         // "Presented my paper at CoNext 2023 (Dec 2023).",
