@@ -28,7 +28,9 @@ const contentData = {
         title: "CS Ph.D. student",
         photo: "./assets/profile.jpg", // Make sure this path is correct
         bio: [
-            `I am a ${siteDetails.year} year ${siteDetails.program} at ${siteDetails.university}, advised by ${siteDetails.advisor}. Recently, I have explored the applications of machine learning on security problems. I'm broadly excited about ${siteDetails.interests}.`,
+            `I am a ${siteDetails.year} year ${siteDetails.program} at ${siteDetails.university}.
+            Recently, I have explored the applications of machine learning on security problems. I'm broadly excited about ${siteDetails.interests}.`,
+            // `advised by ${siteDetails.advisor}.`, 
             `${siteDetails.past}`,
             `I'm always excited to collaborate on cutting-edge projects in security and machine learning. Feel free to reach out—I'd love to hear from you!`
         ],
