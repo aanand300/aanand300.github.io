@@ -75,8 +75,8 @@ const contentData = {
             year: "2026",
             venue: "Under review",
             links: [
-                // TODO: replace "#" with the paper link once available (expected ~June 11, 2026).
-                { name: "Coming soon", url: "#" }
+                { name: "arXiv", url: "https://arxiv.org/abs/2606.10281" },
+                { name: "PDF", url: "https://arxiv.org/pdf/2606.10281" }
             ]
         },
         {
