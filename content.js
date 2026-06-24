@@ -63,7 +63,6 @@ const contentData = {
             authors: "<strong>Aniket Anand</strong><sup>*</sup>, Janvijay Singh<sup>*</sup>, Zhewei Sun, Dilek Hakkani-Tür, Nick Feamster",
             year: "2026",
             venue: "arXiv, May 2026",
-            note: "<sup>*</sup>Equal contribution",
             links: [
                 { name: "arXiv", url: "https://arxiv.org/abs/2605.30526" },
                 { name: "PDF", url: "https://arxiv.org/pdf/2605.30526" }

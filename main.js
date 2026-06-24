@@ -20,6 +20,34 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('header-name').textContent = contentData.site.name;
     document.getElementById('footer-name').textContent = contentData.site.name;
 
+    // --- Style header nav links (About / Interests / Publications) from theme.header ---
+    // Injected as a stylesheet rule (not inline) so the theme's hover colour still wins.
+    if (typeof theme !== 'undefined' && theme.header) {
+        const h = theme.header;
+        const rule = [
+            h.fontFamily && `font-family:${h.fontFamily}`,
+            h.fontSize   && `font-size:${h.fontSize}`,
+            h.fontWeight && `font-weight:${h.fontWeight}`,
+            h.color      && `color:${h.color}`,
+        ].filter(Boolean).join(';');
+        if (rule) {
+            const styleEl = document.createElement('style');
+            styleEl.textContent = `.nav-link{${rule}}`;
+            document.head.appendChild(styleEl);
+        }
+    }
+
+    // --- Style section titles (Interests / News / Recent publications) from theme.sectionTitles ---
+    if (typeof theme !== 'undefined' && theme.sectionTitles) {
+        const s = theme.sectionTitles;
+        document.querySelectorAll('main > section > h2').forEach(h => {
+            if (s.fontFamily) h.style.fontFamily = s.fontFamily;
+            if (s.fontSize)   h.style.fontSize = s.fontSize;
+            if (s.fontWeight) h.style.fontWeight = s.fontWeight;
+            if (s.color)      h.style.color = s.color;
+        });
+    }
+
     // --- Populate About Section ---
     const about = contentData.about;
     document.getElementById('profile-img').src = about.photo;
@@ -35,6 +63,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // --- END OF UPDATE ---
 
+    // Apply bio typography from theme.bio (config.js) so it can be tweaked in one place.
+    if (typeof theme !== 'undefined' && theme.bio) {
+        const b = theme.bio;
+        ['bio-p1', 'bio-p2', 'bio-p3'].forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (b.fontFamily)       el.style.fontFamily = b.fontFamily;
+            if (b.fontSize)         el.style.fontSize = b.fontSize;
+            if (b.lineHeight)       el.style.lineHeight = b.lineHeight;
+            if (b.color)            el.style.color = b.color;
+            if (b.paragraphSpacing) el.style.marginBottom = b.paragraphSpacing;
+        });
+    }
+
     const socialLinksContainer = document.getElementById('social-links');
     socialLinksContainer.innerHTML = about.links.map(link => `
         <a href="${link.url}" target="_blank" class="text-secondary-500 hover:text-primary-600 flex items-center" aria-label="${link.label}">
@@ -47,43 +89,63 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Populate Research Interests (only if container and data exist) ---
     const researchTagsContainer = document.getElementById('research-tags-container');
     if (researchTagsContainer && Array.isArray(contentData.researchInterests) && contentData.researchInterests.length > 0) {
-        researchTagsContainer.innerHTML = contentData.researchInterests.map(tag => {
-            const a = tag.type === 'primary' ? 'primary' : 'secondary';
-            const b = tag.type === 'primary' ? 'primary' : 'secondary';
-            return `<span class="bg-${a}-100 text-${b}-800 text-md font-medium px-4 py-2 rounded-full">${tag.name}</span>`;
-        }).join('');
+        const t = (typeof theme !== 'undefined' && theme.interests) ? theme.interests : {};
+        const tagStyle = [
+            t.fontFamily && `font-family:${t.fontFamily}`,
+            t.fontSize   && `font-size:${t.fontSize}`,
+            t.fontWeight && `font-weight:${t.fontWeight}`,
+            t.color      && `color:${t.color}`,
+            t.background && `background:${t.background}`,
+        ].filter(Boolean).join(';');
+        researchTagsContainer.innerHTML = contentData.researchInterests.map(tag =>
+            `<span class="px-4 py-2 rounded-full" style="${tagStyle}">${tag.name}</span>`
+        ).join('');
     } else if (researchTagsContainer) {
         researchTagsContainer.innerHTML = '';
     }
 
 
     // --- Populate News (bullet list) ---
+    // Typography (font, size, colour, spacing) is driven by theme.news in config.js.
     const newsList = document.getElementById('news-list');
     if (newsList && Array.isArray(contentData.news) && contentData.news.length > 0) {
-        newsList.innerHTML = '<ul class="list-disc ml-6 space-y-2">' + contentData.news.map((item, index) => {
-            const textColor = index < 2 ? 'text-gray-900 font-medium' : 'text-secondary-700';
-            return `<li class="${textColor}">${item}</li>`;
-        }).join('') + '</ul>';
+        const n = (typeof theme !== 'undefined' && theme.news) ? theme.news : {};
+        const ulStyle = [
+            n.fontFamily && `font-family:${n.fontFamily}`,
+            n.fontSize   && `font-size:${n.fontSize}`,
+            n.lineHeight && `line-height:${n.lineHeight}`,
+            n.color      && `color:${n.color}`,
+            n.fontWeight && `font-weight:${n.fontWeight}`,
+        ].filter(Boolean).join(';');
+        newsList.innerHTML = `<ul class="list-disc ml-6" style="${ulStyle}">` + contentData.news.map(item =>
+            `<li${n.itemSpacing ? ` style="margin-bottom:${n.itemSpacing}"` : ''}>${item}</li>`
+        ).join('') + '</ul>';
     } else if (newsList) {
         newsList.innerHTML = '';
     }
 
     // --- Populate Publications (compact list) ---
+    // Typography (font, size, colours, spacing) is driven by theme.publications in config.js.
     const publicationsList = document.getElementById('publications-list');
+    const p = (typeof theme !== 'undefined' && theme.publications) ? theme.publications : {};
+    const pubLiStyle = [
+        p.fontFamily  && `font-family:${p.fontFamily}`,
+        p.fontSize    && `font-size:${p.fontSize}`,
+        p.lineHeight  && `line-height:${p.lineHeight}`,
+        p.itemSpacing && `margin-bottom:${p.itemSpacing}`,
+    ].filter(Boolean).join(';');
+    const pubMetaStyle = p.metaColor ? `color:${p.metaColor}` : '';
+    const pubTitleStyle = `font-weight:600${p.titleColor ? `;color:${p.titleColor}` : ''}`;
     publicationsList.innerHTML = `
-        <ul class="list-none space-y-4">` + contentData.publications.map(pub => `
-            <li class="text-sm leading-relaxed">
-                <div>
-                    <i data-feather="file-text" class="inline-block w-4 h-4 mr-1 text-secondary-400 align-text-bottom"></i>
-                    <span class="text-secondary-700">${pub.authors}${pub.year ? ` (${pub.year}).` : '.'}</span>
-                    <span class="font-semibold text-gray-900">${pub.title}</span>.
-                    <em class="text-secondary-500">${pub.venue}</em>.${pub.note ? ` <span class="text-secondary-400 text-xs italic">${pub.note}</span>` : ''}
-                </div>
-                <div class="mt-1 flex flex-wrap items-center gap-2">
-                    ${pub.links.map(link => (!link.url || link.url === '#')
-                        ? `<span class="inline-block px-2 py-0.5 border border-secondary-300 text-secondary-400 italic rounded text-xs">${link.name}</span>`
-                        : `<a href="${link.url}" target="_blank" class="inline-block px-2 py-0.5 border border-blue-400 text-blue-500 rounded text-xs hover:bg-blue-500 hover:text-white transition-colors">${link.name}</a>`).join('')}
-                </div>
+        <ul class="list-none">` + contentData.publications.map(pub => `
+            <li style="${pubLiStyle}">
+                <i data-feather="file-text" class="inline-block w-4 h-4 mr-1 text-secondary-400 align-text-bottom"></i>
+                <span style="${pubMetaStyle}">${pub.authors}${pub.year ? ` (${pub.year}).` : '.'}</span>
+                <span style="${pubTitleStyle}">${pub.title}</span>.
+                <em style="${pubMetaStyle}">${pub.venue}</em>.
+                ${pub.links.map(link => (!link.url || link.url === '#')
+                    ? `<span class="inline-block px-2 py-0.5 border border-secondary-300 text-secondary-400 italic rounded text-xs ml-1 align-middle">${link.name}</span>`
+                    : `<a href="${link.url}" target="_blank" class="inline-block px-2 py-0.5 border border-blue-400 text-blue-500 rounded text-xs ml-1 align-middle hover:bg-blue-500 hover:text-white transition-colors">${link.name}</a>`).join('')}
             </li>
         `).join('') + `
         </ul>`;
