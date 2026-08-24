@@ -62,7 +62,7 @@ const contentData = {
             title: "Measuring, Localizing, and Ablating Alignment Signatures in LLMs",
             authors: "<strong>Aniket Anand</strong><sup>*</sup>, Janvijay Singh<sup>*</sup>, Zhewei Sun, Dilek Hakkani-Tür, Nick Feamster",
             year: "2026",
-            venue: "arXiv, May 2026",
+            venue: "Empirical Methods in Natural Language Processing (EMNLP, Main) 2026",
             links: [
                 { name: "arXiv", url: "https://arxiv.org/abs/2605.30526" },
                 { name: "PDF", url: "https://arxiv.org/pdf/2605.30526" }
