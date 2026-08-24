@@ -40,7 +40,7 @@ const contentData = {
             { label: "Google Scholar", iconType: "academicon", icon: "ai-google-scholar", url: "https://scholar.google.com/citations?hl=en&user=yXzKvLUAAAAJ&view_op=list_works&sortby=pubdate" },
             { label: "GitHub", icon: "github", url: "https://github.com/aanand300" },
             { label: "LinkedIn", icon: "linkedin", url: "https://www.linkedin.com/in/aanand300/" },
-            { label: "Twitter", icon: "twitter", url: "https://x.com/AniketA01541569" },
+            { label: "Twitter", icon: "twitter", url: "https://x.com/a_anand300" },
             { label: "CV", iconType: "academicon", icon: "ai-cv", url: "./assets/cvv.pdf" }
         ]
     },
