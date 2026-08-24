@@ -61,7 +61,6 @@ const contentData = {
         {
             title: "Measuring, Localizing, and Ablating Alignment Signatures in LLMs",
             authors: "<strong>Aniket Anand</strong><sup>*</sup>, Janvijay Singh<sup>*</sup>, Zhewei Sun, Dilek Hakkani-Tür, Nick Feamster",
-            year: "2026",
             venue: "Empirical Methods in Natural Language Processing (EMNLP, Main) 2026",
             links: [
                 { name: "arXiv", url: "https://arxiv.org/abs/2605.30526" },
@@ -81,7 +80,6 @@ const contentData = {
         {
             title: "Aggressive internet-wide scanners: Network impact and longitudinal characterization",
             authors: "<strong>Aniket Anand</strong>, Michalis Kallitsis, Jackson Sippe, Alberto Dainotti",
-            year: "2023",
             venue: "CoNEXT 2023: Companion of the 19th International Conference on emerging Networking EXperiments and Technologies",
             links: [
                 { name: "PDF", url: "https://dl.acm.org/doi/pdf/10.1145/3624354.3630583" },

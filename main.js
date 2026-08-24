@@ -139,13 +139,15 @@ document.addEventListener('DOMContentLoaded', () => {
     publicationsList.innerHTML = `
         <ul class="list-none">` + contentData.publications.map(pub => `
             <li style="${pubLiStyle}">
-                <i data-feather="file-text" class="inline-block w-4 h-4 mr-1 text-secondary-400 align-text-bottom"></i>
+                <div>
+                    <i data-feather="file-text" class="inline-block w-4 h-4 mr-1 text-secondary-400 align-text-bottom"></i>
+                    <span style="${pubTitleStyle}">${pub.title}</span>
+                    ${pub.links.map(link => (!link.url || link.url === '#')
+                        ? `<span class="inline-block px-2 py-0.5 border border-secondary-300 text-secondary-400 italic rounded text-xs ml-1 align-middle">${link.name}</span>`
+                        : `<a href="${link.url}" target="_blank" class="inline-block px-2 py-0.5 border border-blue-400 text-blue-500 rounded text-xs ml-1 align-middle hover:bg-blue-500 hover:text-white transition-colors">${link.name}</a>`).join('')}
+                </div>
                 <span style="${pubMetaStyle}">${pub.authors}${pub.year ? ` (${pub.year}).` : '.'}</span>
-                <span style="${pubTitleStyle}">${pub.title}</span>.
                 <em style="${pubMetaStyle}">${pub.venue}</em>.
-                ${pub.links.map(link => (!link.url || link.url === '#')
-                    ? `<span class="inline-block px-2 py-0.5 border border-secondary-300 text-secondary-400 italic rounded text-xs ml-1 align-middle">${link.name}</span>`
-                    : `<a href="${link.url}" target="_blank" class="inline-block px-2 py-0.5 border border-blue-400 text-blue-500 rounded text-xs ml-1 align-middle hover:bg-blue-500 hover:text-white transition-colors">${link.name}</a>`).join('')}
             </li>
         `).join('') + `
         </ul>`;
