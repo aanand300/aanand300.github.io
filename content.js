@@ -29,8 +29,8 @@ const contentData = {
         title: "CS Ph.D. student",
         photo: "./assets/profile.jpg", // Make sure this path is correct
         bio: [
-            `I am a ${siteDetails.year} year ${siteDetails.program} at ${siteDetails.university}.
-            Recently, I have explored the applications of machine learning on security problems. I'm broadly excited about ${siteDetails.interests}.`,
+            `I am a ${siteDetails.year} year PhD student in ${siteDetails.department} at ${siteDetails.university}.
+            My research focuses on understanding and shaping the behavior of large language models through interpretability and post-training. I study how internal representations influence model outputs, how training shapes model behavior, and how to make AI agents more reliable and transparent.`,
             // `advised by ${siteDetails.advisor}.`, 
             `I'm always happy to discuss ideas about machine learning for AI safety. If you're working on related questions, I'd love to hear from you.`,
             `${siteDetails.past}`
