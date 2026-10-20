@@ -51,9 +51,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Populate About Section ---
     const about = contentData.about;
     document.getElementById('profile-img').src = about.photo;
-    document.getElementById('profile-name').textContent = about.name;
-    document.getElementById('profile-title').textContent = about.title;
-    
+    const profileName = document.getElementById('profile-name');
+    profileName.textContent = about.name;
+    if (typeof theme !== 'undefined' && theme.profileName) {
+        const t = theme.profileName;
+        if (t.fontFamily) profileName.style.fontFamily = t.fontFamily;
+        if (t.fontSize)   profileName.style.fontSize = t.fontSize;
+        if (t.fontWeight) profileName.style.fontWeight = t.fontWeight;
+        if (t.color)      profileName.style.color = t.color;
+    }
+    const profileTitle = document.getElementById('profile-title');
+    profileTitle.textContent = about.title;
+    if (typeof theme !== 'undefined' && theme.profileTitle) {
+        const t = theme.profileTitle;
+        if (t.fontFamily) profileTitle.style.fontFamily = t.fontFamily;
+        if (t.fontSize)   profileTitle.style.fontSize = t.fontSize;
+        if (t.fontWeight) profileTitle.style.fontWeight = t.fontWeight;
+        if (t.color)      profileTitle.style.color = t.color;
+    }
+
     // --- UPDATED LINES ---
     // Switched from .textContent to .innerHTML to allow links in the bio
     document.getElementById('bio-p1').innerHTML = about.bio[0];
@@ -188,6 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('main > section').forEach(section => {
             if (theme.layout.sectionSpacing) section.style.marginBottom = theme.layout.sectionSpacing;
         });
+        const interestsSection = document.getElementById('interests');
+        if (interestsSection && theme.layout.interestsSpacing) interestsSection.style.marginBottom = theme.layout.interestsSpacing;
         document.querySelectorAll('main > section > h2').forEach(heading => {
             if (theme.layout.headingSpacing) heading.style.marginBottom = theme.layout.headingSpacing;
         });

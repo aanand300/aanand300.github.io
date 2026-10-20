@@ -13,7 +13,7 @@ const siteDetails = {
     field: "[Your Specific Field, e.g., computer vision, natural language processing, systems]",
     interests: "capabilities and security limitations of LLMs - how they can be exploited and how to build robust defenses against misuse",
     currentProject: "[A brief, 1-2 sentence description of your current project, e.g., 'self-supervised learning for medical imaging' or 'optimizing GPU performance for large-scale training']",
-    past: "In the past I've worked on Internet measurements with <a href='https://websites.umich.edu/~mgkallit/' target='_blank' class='text-blue-400 hover:text-primary-700 hover:underline font-medium'>Michalis Kallitsis</a> and wonderful members of <a href='https://inetintel.notion.site/About-Us-ea34427db70e4109a7a80e316c4e7a65' target='_blank' class='text-blue-400 hover:text-primary-700 hover:underline font-medium'>Internet Intelligence Lab</a> during my time at Georgia Tech, and on a few networks and security topics as an undergrad at IIT (BHU)."
+    past: "In the past, I've applied machine learning to security problems. During my Master's at Georgia Tech, I worked on Internet-wide network measurement with <a href='https://websites.umich.edu/~mgkallit/' target='_blank' class='text-blue-400 hover:text-primary-700 hover:underline font-medium'>Michalis Kallitsis</a> and the wonderful members of the <a href='https://inetintel.notion.site/About-Us-ea34427db70e4109a7a80e316c4e7a65' target='_blank' class='text-blue-400 hover:text-primary-700 hover:underline font-medium'>Internet Intelligence Lab</a>. Prior to that, I completed my undergraduate degree at IIT (BHU)."
 };
 
 const contentData = {
@@ -32,7 +32,7 @@ const contentData = {
             `I am a ${siteDetails.year} year PhD student in ${siteDetails.department} at ${siteDetails.university}.
             My research focuses on understanding and shaping the behavior of large language models through interpretability and post-training. I study how internal representations influence model outputs, how training shapes model behavior, and how to make AI agents more reliable and transparent.`,
             // `advised by ${siteDetails.advisor}.`, 
-            `I'm always happy to discuss ideas about machine learning for AI safety. If you're working on related questions, I'd love to hear from you.`,
+            `I'm always happy to discuss ideas about LLM interpretability, post-training, and agent reliability. If you're working on related questions or have an interesting research opportunity in these areas, I'd love to hear from you.`,
             `${siteDetails.past}`
         ],
         links: [

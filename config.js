@@ -16,7 +16,7 @@ const theme = {
     // (Hover still brightens the link via the site theme — this sets the
     //  resting style.)
     header: {
-        fontFamily: "'Helvetica'",
+        fontFamily: "'Roboto', sans-serif",
         fontSize:   "20px", // size of the nav link text
         fontWeight: "700",
         color:      "#4b5563",  // resting link colour
@@ -25,7 +25,7 @@ const theme = {
     // ── SECTION TITLES (the headings "Interests", "News", "Recent publications") ─
     // The thick underline under each heading is left as-is; this styles the text.
     sectionTitles: {
-        fontFamily: "'Helvetica'",
+        fontFamily: "'Roboto', sans-serif",
         fontSize:   "22px",   // heading text size
         fontWeight: "700",      // bold
         color:      "#000000",  // near-black
@@ -34,18 +34,16 @@ const theme = {
     // Vertical rhythm between the big page sections.
     layout: {
         sectionSpacing: "2rem",     // space below each section (gap between sections)
+        interestsSpacing: "1rem",   // space below the Interests section only (overrides sectionSpacing)
         headingSpacing: "0.75rem",  // gap between a section heading and its content
         tagSpacing: "0.75rem",      // gap between the Interests tags
     },
 
     // ── NEWS bullet points ──────────────────────────────────────────────────
-    // Styled to match the clean Helvetica bullet style on Rishub Jain's site
-    // (e.g. "Backstory: Improving the Information Quality of the Internet").
     // Tweak any line below and refresh. (Links inside a news item stay blue —
     // that colour comes from content.js, not from here.)
     news: {
-        // fontFamily: "'Times'",
-        fontFamily: "'Times'",
+        fontFamily: "'Roboto', sans-serif",
         fontSize:   "16px",     // original (good) news size; bump to "1.05rem" etc. to taste
         lineHeight: "1.4",      // line spacing within a single bullet
         color:      "#333",     // text colour of the news lines
@@ -53,10 +51,27 @@ const theme = {
         itemSpacing: "0.5rem",  // vertical gap BETWEEN bullets
     },
 
+    // ── PROFILE NAME (your name at the top of the About section) ────────────
+    profileName: {
+        fontFamily: "'Roboto', sans-serif",
+        // fontSize:   "30px",
+        fontWeight: "700",      // bold
+        // color:      "#111827",
+    },
+
+    // ── PROFILE TITLE (the "CS Ph.D. student" line under your name) ─────────
+    // Uncomment a line to override the default look.
+    profileTitle: {
+        fontFamily: "'Roboto', sans-serif",
+        // fontSize:   "18px",
+        fontWeight: "700",      // bold (default was 300 / light)
+        // color:      "#000",
+    },
+
     // ── BIO paragraphs (the "About" intro) ──────────────────────────────────
     bio: {
-        fontFamily: "'Times'",
-        fontSize:   "16px",
+        fontFamily: "'Roboto', sans-serif",
+        fontSize:   "15px",     // Roboto runs larger than Times; 15px matches the old 16px Times look
         // lineHeight: "1.4",      // smaller = more compact
         color:      "#000",     // black
         paragraphSpacing: "0.5rem", // vertical gap between bio paragraphs
@@ -64,7 +79,7 @@ const theme = {
 
     // ── INTERESTS tags (the pill chips under "Interests") ───────────────────
     interests: {
-        fontFamily: "'Times'",
+        fontFamily: "'Roboto', sans-serif",
         fontSize:   "16px",     // size of the text inside each tag
         fontWeight: "500",
         color:      "#000000",  // tag text colour (dark grey)
@@ -75,7 +90,7 @@ const theme = {
     // (The coloured link pills — arXiv / PDF / BibTeX — stay blue; that style
     //  lives in main.js, not here.)
     publications: {
-        fontFamily: "'Times'",
+        fontFamily: "'Roboto', sans-serif",
         fontSize:   "14px", // original size (small / compact)
         // lineHeight: "1.625",    // line spacing within one entry
         titleColor: "#111827",  // paper title colour (near-black)
