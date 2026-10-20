@@ -4,8 +4,8 @@
 
 const siteDetails = {
     name: "Aniket Anand",
-    lastUpdated: "June 2026", // <-- shown in the footer; bump this when you update the site
-    year: "third", // <-- YOU CAN CHANGE THIS VALUE (e.g., "4th")
+    lastUpdated: "October 2026", // <-- shown in the footer; bump this when you update the site
+    year: "fourth", // <-- YOU CAN CHANGE THIS VALUE (e.g., "4th")
     program: "PhD Student",
     department: "Computer Science",
     university: "<a href='https://computerscience.uchicago.edu/' target='_blank' class='text-blue-400 hover:underline font-medium'>UChicago</a>",
@@ -47,10 +47,8 @@ const contentData = {
 
     // Research Interests Section
     researchInterests: [
-        { name: "Machine Learning", type: "primary" },
-        { name: "Large Language Models", type: "primary" },
-        { name: "Interpretability", type: "primary" },
-        { name: "AI Safety", type: "primary" },
+        { name: "LLM post-training", type: "primary" },
+        { name: "Model interpretability", type: "primary" },
         // { name: "PyTorch", type: "secondary" },
         // { name: "GPU Optimization", type: "secondary" },
         // { name: "Explainable AI (XAI)", type: "secondary" }
