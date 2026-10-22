@@ -57,7 +57,7 @@ const contentData = {
     // Publications Section
     publications: [
         {
-            title: "Measuring, Localizing, and Ablating Alignment Signatures in LLMs",
+            title: "Measuring, Localizing, and Reducing the AI-Like Writing Style of Post-Trained LLMs",
             authors: "<strong>Aniket Anand</strong><sup>*</sup>, Janvijay Singh<sup>*</sup>, Zhewei Sun, Dilek Hakkani-Tür, Nick Feamster",
             venue: "Empirical Methods in Natural Language Processing (EMNLP, Main) 2026",
             links: [
